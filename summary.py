@@ -47,7 +47,7 @@ re_key_pairs = [
 
 # find label inside procedure file and display content or read from the top if label does not exist
 def parse_procedure(procedure, label, proc_params, first_try = True):
-    with open( r'{}/{}'.format(source_dir, procedure[9:]), 'r') as file:
+    with open( r'{}/{}'.format(source_dir, procedure[9:]), 'r', encoding='iso-8859-1') as file:
         lines = file.readlines()
         found = True if not first_try else False
         for line in lines:
@@ -115,7 +115,7 @@ format = FORMAT_LIST
 if len(sys.argv) > 1 and sys.argv[1] == '-csv':
     format = FORMAT_CSV
 job_id = 1
-with open( r'{}/FFD$PARAMS.COM'.format(source_dir), 'r') as file:
+with open( r'{}/FFD$PARAMS.COM'.format(source_dir), 'r', encoding='iso-8859-1') as file:
     lines = file.readlines()
     if format == FORMAT_CSV:
         print_csv_header()
